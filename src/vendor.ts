@@ -9,5 +9,9 @@ import '@angular/router';
 import 'rxjs';
 import '@angularclass/hmr';
 
+
+// Material design
+import '../node_modules/@angular/material/core/theming/prebuilt/pink-bluegrey.css';
+
 // Other vendors for example jQuery, Lodash or Bootstrap
 // You can import js, ts, css, sass, ...
