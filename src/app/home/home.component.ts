@@ -7,6 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
+  basicRowHeight = 80;
+  fitListHeight = '400px';
+  ratioGutter = 1;
+
   constructor() {
     // Do stuff
   }
