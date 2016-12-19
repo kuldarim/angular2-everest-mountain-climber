@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Sanitizer } from '@angular/core';
+import { ApiService } from '../shared/api.service';
 
 @Component({
   selector: 'my-home',
@@ -11,8 +12,14 @@ export class HomeComponent implements OnInit {
   fitListHeight = '400px';
   ratioGutter = 1;
 
-  constructor() {
-    // Do stuff
+  imageData: any;
+
+  constructor(private apiService: ApiService, private sanitizer: Sanitizer) {
+    this.apiService.getPictures()
+      .subscribe(data => {
+        console.log(data);
+        this.imageData = 'data:image/png;base64,' + data;
+      });
   }
 
   ngOnInit() {
