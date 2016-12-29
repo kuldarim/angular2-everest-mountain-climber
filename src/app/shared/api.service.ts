@@ -17,7 +17,7 @@ export class ApiService {
   makeRecognition(path: string) {
     return this.http.post('http://localhost:8080/recognise', path)
       .toPromise()
-      .then(response => response.status)
+      .then(response => response.json())
       .catch(this.handleError)
   }
 

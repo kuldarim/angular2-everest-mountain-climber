@@ -15,16 +15,11 @@ export class HomeComponent implements OnInit {
   persons: any;
   prefix: string ='data:image/png;base64,';
 
-  constructor(private apiService: ApiService, private sanitizer: Sanitizer) {
-    // this.apiService.getPictures()
-    //   .subscribe(data => {
-    //     console.log(data);
-    //     this.imageData = 'data:image/png;base64,' + data;
-    //   });
+  recognizedName: string = '';
 
+  constructor(private apiService: ApiService, private sanitizer: Sanitizer) {
     this.apiService.getPictures().then(data => {
       this.persons = data.persons;
-      console.log(this.persons);
     });
   }
 
@@ -33,9 +28,9 @@ export class HomeComponent implements OnInit {
   }
 
   onImageClick(filePath: string) {
-    this.apiService.makeRecognition(filePath);
+    this.apiService.makeRecognition(filePath).then(data => this.recognizedName = data.person);
   }
-
+    )
   ngOnInit() {
     console.log('Hello Home');
   }
