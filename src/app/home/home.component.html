@@ -1,7 +1,13 @@
 <div *ngFor="let person of persons;">
   <label>{{person.name}}</label>
-  <div *ngFor="let image of person.images">
-    <img src={{getPrefixed(image.encoded)}}>
+  <div
+    *ngFor="let image of person.images"
+    (click)="onImageClick(image.filePath)"
+  >
+    <img
+      src={{getPrefixed(image.encoded)}}
+
+      >
     <!--{{prefix + image.encoded}}-->
   </div>
 </div>

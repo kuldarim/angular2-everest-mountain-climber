@@ -32,6 +32,10 @@ export class HomeComponent implements OnInit {
     return this.prefix + data;
   }
 
+  onImageClick(filePath: string) {
+    this.apiService.makeRecognition(filePath);
+  }
+
   ngOnInit() {
     console.log('Hello Home');
   }
