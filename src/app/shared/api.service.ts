@@ -8,9 +8,15 @@ export class ApiService {
   constructor (private http: Http) {}
 
   getPictures() {
-    return this.http.get('http://localhost:8080/photo2')
-      .map((res:Response) => res._body)
-      .catch((error:any) => Observable.throw(error.json().error || 'Server error'))
+    return this.http.get('http://localhost:8080/photos')
+      .toPromise()
+      .then(response => response.json())
+      .catch(this.handleError)
+  }
+
+  private handleError(error: any): Promise<any> {
+    console.error('An error occurred', error); // for demo purposes only
+    return Promise.reject(error.message || error);
   }
 
 }
