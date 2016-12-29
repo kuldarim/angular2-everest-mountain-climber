@@ -1,15 +1,19 @@
-<label>Person is {{recognizedName}}</label>
+<div>Recognized person is <strong>{{recognizedName}}</strong></div>
 
-<div *ngFor="let person of persons;">
-  <label>{{person.name}}</label>
-  <div
-    *ngFor="let image of person.images"
-    (click)="onImageClick(image.filePath)"
-  >
-    <img
-      src={{getPrefixed(image.encoded)}}
-
+<div
+  class="container"
+  *ngFor="let person of persons;"
+>
+  <label>Person's {{person.name}} photos:</label>
+  <div class="images-container">
+    <div
+      *ngFor="let image of person.images"
+      (click)="onImageClick(image.filePath)"
+    >
+      <img
+        class="grow"
+        src={{getPrefixed(image.encoded)}}
       >
-    <!--{{prefix + image.encoded}}-->
+    </div>
   </div>
 </div>

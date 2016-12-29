@@ -2,3 +2,26 @@
 * {
   color: #FFEF00;
 }
+
+.container {
+  text-align: left;
+  label {
+    line-height: 40px;
+  }
+}
+
+.images-container {
+  display: flex;
+  > div {
+    flex: 0.2;
+  }
+}
+
+.grow {
+  transition: all .2s ease-in-out;
+  cursor: pointer;
+}
+
+.grow:hover {
+  transform: scale(1.1);
+}
