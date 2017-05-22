@@ -18,8 +18,15 @@ export class HomeComponent implements OnInit {
   recognizedName: string = '';
 
   constructor(private apiService: ApiService, private sanitizer: Sanitizer) {
+
     this.apiService.getPictures().then(data => {
+      for (let i = 0; i < data.persons.length; i++ ) {
+        data.persons[i].images = data.persons[i].images.slice(1);
+      }
+
       this.persons = data.persons;
+
+
     });
   }
 

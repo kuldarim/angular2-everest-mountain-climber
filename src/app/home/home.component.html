@@ -1,10 +1,17 @@
-<div>Recognized person is <strong>{{recognizedName}}</strong></div>
+<div
+  style="    position: fixed;
+    margin: 0 auto;
+    background: #0147A7;
+    padding: 10px 0;
+    top: 0;"
+
+>Recognized person is <strong>{{recognizedName}}</strong></div>
 
 <div
   class="container"
-  *ngFor="let person of persons;"
+  *ngFor="let person of persons; let i = index"
 >
-  <label>Person's {{person.name}} photos:</label>
+  <label>Person's {{i + 1}} photos:</label>
   <div class="images-container">
     <div
       *ngFor="let image of person.images"
